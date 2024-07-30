@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('signup-background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+        .signup-container {
+            background: rgba(46, 41, 41, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .signup-container img {
+            height: 50px;
+            margin-bottom: 20px;
+        }
+
+        .signup-container h1 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .signup-container input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .signup-container .password-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .signup-container .password-container input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .signup-container .toggle-password {
+            display: inline-block;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .signup-container .toggle-password .toggle-icon {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .signup-container button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #0066cc;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .signup-container button:hover {
+            background-color: #004c99;
+        }
+
+        .signup-container .google-btn {
+            background-color: #db4437;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .signup-container .google-btn img {
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .signup-container .google-btn:hover {
+            background-color: #c23321;
+        }
+
+        .signup-container p {
+            color: #ccc;
+            margin-top: 15px;
+        }
+
+        .signup-container a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .signup-container a:hover {
+            color: #f39c12;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <img src="logo.png" alt="Logo">
+        <h1>Sign Up</h1>
+        <form id="signup-form">
+            <input type="text" id="username" name="username" placeholder="Username" required><br>
+            <input type="email" id="email" name="email" placeholder="Email" required><br>
+            <div class="password-container">
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <span class="toggle-password" onclick="togglePasswordVisibility()">
+                    <span class="toggle-icon">👁️</span>
+                </span>
+            </div>
+            <button type="submit">Sign Up</button>
+            <div class="google-btn" onclick="signupWithGoogle()">
+                <img src="google_logo.png" alt="Google Logo">
+                Sign up with Google
+            </div>
+        </form>
+        <p>Already have an account? <a href="login.html">Login here</a></p>
+    </div>
+
+    <script>
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById('password');
+            var icon = document.querySelector('.toggle-icon');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.textContent = '🙈';
+            } else {
+                passwordInput.type = 'password';
+                icon.textContent = '👁️';
+            }
+        }
+
+        function signupWithGoogle() {
+            // Implement Google Sign-Up functionality here
+            alert('Signing up with Google...');
+        }
+
+        document.getElementById('signup-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Retrieve username, email, and password
+            var username = document.getElementById('username').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            
+            // Here, you would normally store these details in a database
+            // For demonstration purposes, let's assume the signup is successful
+            
+            // Redirect to index.html after successful signup
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>
